@@ -16,8 +16,11 @@
   },
   "scripts": {
     "build": "tsc -p ./tsconfig.json && tsc-alias && ts-add-js-extension --dir=dist",
-    "postbuild": "yarn copy:views && yarn copy:public && yarn copy:static",
+    "postbuild": "yarn copy:images && yarn copy:javascripts && yarn copy:stylesheets",
     "rebuild": "yarn clean && yarn build",
+    "copy:images" : "cp -rv ./src/images ./dist/images",
+    "copy:javascripts" : "cp -rv ./src/javascripts ./dist/javascripts",
+    "copy:stylesheets" : "cp -rv ./src/stylesheets ./dist/stylesheets",
     "clean": "rm -rvf ./dist",
     "wipe": "yarn clean && rm -rvf ./node_modules"
   },
